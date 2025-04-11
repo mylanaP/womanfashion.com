@@ -1,0 +1,514 @@
+
+/* ----------------------------------------------------------------
+
+	shop.scss
+
+-----------------------------------------------------------------*/
+
+
+/* ----------------------------------------------------------------
+	Shop
+-----------------------------------------------------------------*/
+
+
+/* ----------------------------------------------------------------
+	Add here styles for shop pages. Thanks!
+-----------------------------------------------------------------*/
+
+
+/* ----------------------------------------------------------------
+	Category
+-----------------------------------------------------------------*/
+
+.category {
+	li {
+		a {
+			color: $white;
+			display: inline-block;
+			margin-bottom: $spacer * 1.875;
+			padding-right: $spacer * 2.125;
+			position: relative;
+			line-height: 1;
+
+			&:after {
+				content: "";
+				position: absolute;
+				right: 0;
+				top: 1px;
+				display: block;
+				width: 0.890625rem;
+				height: 0.984375rem;
+				background-image: url(../images/icons/category-arrow.png);
+				background-repeat: no-repeat;
+				background-size: 100%;
+				opacity: 0;
+
+				@include transition(all 0.3s ease-in-out);
+			}
+
+			&:hover {
+				color: $theme-color;
+
+				&:after {
+					opacity: 1;
+				}
+			}
+
+			span {
+				display: inline-block;
+				font-size: 0.875rem;
+				margin-right: $spacer * 1.875;
+				vertical-align: top;
+			}
+		}
+	}
+}
+
+
+/* ----------------------------------------------------------------
+	Product
+-----------------------------------------------------------------*/
+
+.product {
+	margin-bottom: $spacer * 1.875;
+	position: relative;
+
+	.product-image {
+		text-align: center;
+		position: relative;
+
+		a {
+			display: block;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		> a:nth-of-type(2) {
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+
+			@include transition(all 0.3s ease-in-out);
+		}
+
+		&:hover {
+			> a:nth-of-type(2) {
+				opacity: 1;
+				z-index: 1;
+			}
+		}
+	}
+
+	.product-price {
+		color: $white;
+		font-family: $heading-font;
+		font-size: 1.875rem;
+		font-weight: 700;
+		line-height: 1;
+
+		@include media-breakpoint-up(lg) {
+			color: #1b1b1b;
+		}
+
+		del {
+			color: $white;
+			display: block;
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1;
+			margin-bottom: $spacer * 1.125;
+
+			@include media-breakpoint-up(lg) {
+				color: #5b5571;
+			}
+		}
+	}
+
+	.product-title {
+		font-family: $body-font;
+		font-size: 0.875rem;
+		font-weight: 400;
+		line-height: 1;
+		display: inline-block;
+		margin-bottom: $spacer * 1.125;
+
+		a {
+			color: $white;
+
+			@include media-breakpoint-up(lg) {
+				color: #1b1b1b;
+			}
+		}
+	}
+
+	.product-rating {
+		margin-bottom: $spacer * 1.125;
+
+		i {
+			color: $white;
+			font-size: 0.75rem;
+
+			@include media-breakpoint-up(lg) {
+				color: $theme-color;
+			}
+
+			&.empty {
+				color: rgba($white, 0.5);
+
+				@include media-breakpoint-up(lg) {
+					color: rgba($theme-color, 0.5);
+				}
+			}
+		}
+	}
+
+	.product-details {
+		padding: $spacer * 2.25 0;
+	}
+
+	.onhot,
+	.onsale,
+	.onnew {
+		color: $theme-color;
+		font-family: $third-font;
+		font-size: 3rem;
+		line-height: 1;
+		position: absolute;
+		right: 1.875rem;
+		bottom: 1.875rem;
+		z-index: 2;
+
+		@include rotate(-20deg);
+	}
+
+	.add-to-cart {
+		border: $btn-border-width solid $white;
+		color: $white;
+		padding: $spacer * 1.125;
+
+		@include media-breakpoint-up(lg) {
+			border-color: $theme-color;
+			color: $theme-color;
+		}
+
+		&:hover,
+		&:active,
+		&.active {
+			background-color: transparent;
+			color: $white;
+
+			@include media-breakpoint-up(lg) {
+				color: $theme-color;
+			}
+
+			.btn-text {
+				display: inline-block;
+			}
+		}
+
+		.btn-text {
+			display: none;
+			font-size: 0.75rem;
+			margin-right: $spacer * 0.9375;
+			vertical-align: middle;
+		}
+
+		.icon-plus {
+			background-image: url(../images/icons/plus_white.png);
+			background-repeat: no-repeat;
+			background-size: 100%;
+			display: inline-block;
+			width: 0.703125rem;
+			height: 0.703125rem;
+			vertical-align: middle;
+
+			@include media-breakpoint-up(lg) {
+				background-image: url(../images/icons/plus.png);
+			}
+		}
+	}
+
+	// Product Details on image
+	&.product-on-image {
+		@include media-breakpoint-up(lg) {
+			.product-details {
+				padding: 0;
+				position: absolute;
+				left: 68%;
+				top: 50%;
+				z-index: 2;
+
+				@include translateY(-50%);
+			}
+
+			.product-price {
+				margin-bottom: $spacer * 1.875;
+			}
+		}
+	}
+
+	&.product-light {
+		color: $white;
+
+		.product-price {
+			color: $white;
+
+			del {
+				color: $white;
+			}
+		}
+
+		.product-title a {
+			color: $white;
+		}
+
+		.product-rating {
+			i {
+				color: $white;
+
+				&.empty {
+					color: rgba($white, 0.5);
+				}
+			}
+		}
+
+		.add-to-cart {
+			border-color: $white;
+			color: $white;
+
+			&:hover,
+			&:active {
+				background-color: transparent;
+				color: $white;
+			}
+
+			.icon-plus {
+				background-image: url(../images/icons/plus_white.png);
+			}
+		}
+
+		.onhot,
+		.onsale,
+		.onnew {
+			color: $white;
+		}
+	}
+}
+
+
+/* ----------------------------------------------------------------
+	Product Ads
+-----------------------------------------------------------------*/
+
+.product-ads {
+	margin-bottom: $spacer * 1.875;
+}
+
+
+/* ----------------------------------------------------------------
+	Product Filters
+-----------------------------------------------------------------*/
+
+.product-filters {
+	.filter-title {
+		color: $headings-color;
+		font-size: .875rem;
+		font-family: $body-font;
+		font-weight: 600;
+		line-height: 1;
+		margin-bottom: 0.75rem;
+	}
+
+	ul li ul {
+		padding-left: 2.25rem;
+	}
+
+	.product-filter-color {
+		ul li {
+			display: inline-block;
+			margin-right: 5px;
+
+			.filter-color {
+				width: 1.875rem;
+				height: 1.875rem;
+				margin: 0;
+				border: none;
+
+				&:checked::after {
+					top: 8px;
+					left: 12px;
+					width: 6px;
+					height: 10px;
+				}
+
+				&#color_ffffff {
+					border: 1px solid #dcdcdc;
+
+					&:checked::after {
+						border-color: #373737;
+					}
+				}
+			}
+		}
+	}
+
+	.product-filter-size {
+		ul li {
+			display: inline-block;
+			position: relative;
+			margin-right: 5px;
+
+			.filter-size {
+				width: 3.125rem;
+				height: 2.5rem;
+				margin: 0;
+				border: none;
+
+				& + label {
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					z-index: 1;
+
+					@include translate3d(-50%, -50%, 0);
+				}
+
+				&:checked {
+					background-color: $theme-color;
+					color: $white;
+
+					& + label {
+						color: $white;
+					}
+
+					&::after {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/* ----------------------------------------------------------------
+	Reviews
+-----------------------------------------------------------------*/
+
+#reviews {
+	#comments {
+		.reviews-title {
+			font-size: 1.125rem;
+
+			span {
+				color: $body-color;
+				font-family: $body-font;
+				font-size: 0.875rem;
+				font-weight: 400;
+				margin-left: 0.625rem;
+			}
+		}
+
+		ul.comment-list {
+			.review {
+				margin-bottom: 1.125rem;
+
+				.comment-container {
+					display: flex;
+
+					.comment-text {
+						margin-left: 1.125rem;
+						padding-top: 0.3125rem;
+
+						.meta {
+							line-height: 1;
+							margin-bottom: 0;
+
+							.review-author {
+								color: $headings-color;
+							}
+
+							.review-date {
+								margin-left: 0.5rem;
+							}
+						}
+
+						.description {
+							p {
+								margin-bottom: 0;
+							}
+						}
+					}
+				}
+
+				.rating {
+					.star-rating {
+						i {
+							color: $theme-color;
+							font-size: 0.75rem;
+						}
+					}
+
+					.rating-text {
+						color: $headings-color;
+						font-size: 0.75rem;
+					}
+				}
+			}
+		}
+	}
+
+	#review_form {
+		margin-top: 2.25rem;
+		padding: 1.875rem 0;
+
+		@include border-radius(0.5rem);
+
+		.comment-respond {
+			.comment-form {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+
+/* ----------------------------------------------------------------
+	Shop Table
+-----------------------------------------------------------------*/
+
+.shop-table {
+	td, th {
+		padding: 1rem;
+	}
+
+	thead {
+		tr {
+			th {
+				border: none;
+				font-weight: 600;
+				font-size: 0.75rem;
+				line-height: 1;
+				text-transform: uppercase;
+			}
+		}
+	}
+
+	tbody {
+		tr {
+			td {
+				border-bottom-width: 5px;
+				border-color: transparent;
+				vertical-align: middle;
+			}
+		}
+	}
+
+	& > :not(:last-child) > :last-child > * {
+		border-bottom-color: transparent;
+	}
+}

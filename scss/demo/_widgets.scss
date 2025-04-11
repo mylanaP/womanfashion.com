@@ -1,0 +1,191 @@
+
+/* ----------------------------------------------------------------
+
+	widgets.scss
+
+-----------------------------------------------------------------*/
+
+
+/* ----------------------------------------------------------------
+	Widgets
+-----------------------------------------------------------------*/
+
+
+/* ----------------------------------------------------------------
+	Add here styles for widgets. Thanks!
+-----------------------------------------------------------------*/
+
+
+.widget {
+	position: relative;
+
+	.widget-title {
+		font-size: 0.875rem;
+		font-weight: 700;
+		margin-bottom: $spacer * 1.125;
+		padding-top: $spacer * 0.375;
+	}
+
+	// Widget - Social
+	&.widget-social {
+		.social-icons {
+			display: flex;
+
+			li {
+				display: block;
+				padding: 0 $spacer * 0.28125;
+
+				&:first-child {
+					padding-left: 0;
+				}
+
+				&:last-child {
+					padding-right: 0;
+				}
+
+				a {
+					background-color: #110d1f;
+					color: #625c76;
+					display: block;
+					line-height: 2.625rem;
+					width: 2.625rem;
+					height: 2.625rem;
+					text-align: center;
+
+					@include transition(all 0.3s ease-in-out);
+
+					&:hover {
+						background-color: $theme-color;
+						color: $white;
+					}
+				}
+			}
+		}
+	}
+
+	// Widget - Links
+	&.widget-links {
+		ul {
+			li {
+				a {
+					color: $secondary;
+					display: block;
+					font-family: $body-font;
+					font-size: 0.875rem;
+					font-weight: 300;
+					line-height: 1;
+					padding: $spacer * 0.5625 0;
+
+					@include transition(all 0.3s ease-in-out);
+
+					&:hover {
+						color: $link-color;
+					}
+				}
+			}
+		}
+	}
+
+	// Widget - Payments
+	&.widget-payment {
+		.payments {
+			display: flex;
+
+			.payment-icon {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background-color: #110d1f;
+				width: 5.0625rem;
+				height: 2.625rem;
+				margin: 0 $spacer * 0.28125;
+			}
+		}
+	}
+
+	// Widget - Search
+	&.widget-search {
+		#search-form {
+			.input-group {
+				& > .form-control {
+					max-width: 100%;
+				}
+
+				 & > .btn {
+					margin-left: -5.375rem;
+				}
+			}
+		}
+	}
+
+	// Widget - Subscribe
+	&.widget-subscribe {
+		.widget-content {
+			.form-control:focus {
+				& + .input-group-append {
+					.btn {
+						border-top-left-radius: 0;
+						border-bottom-left-radius: 0;
+					}
+				}
+			}
+		}
+	}
+
+	// Widget - Recent Posts
+	&.widget-latest-posts {
+		.post {
+			margin-bottom: 0.625rem;
+		}
+	}
+
+	// Widget - Recent Comments
+	&.widget-latest-comments {
+		.comment-link {
+			color: $primary;
+		}
+	}
+
+	// Widget - Post Categories
+	&.widget-post-categories {
+		.post-categories {
+			li {
+				position: relative;
+			}
+
+			a {
+				&[data-bs-toggle] {
+					&::after {
+						content: "";
+						background-size: 100%;
+						background-repeat: no-repeat;
+						position: absolute;
+						right: 0;
+						top: 0.75rem;
+						display: block;
+						width: 0.6875rem;
+						height: 0.4375rem;
+					}
+
+					&[aria-expanded="true"] {
+						color: $theme-color;
+
+						&::after {
+							background-image: escape-svg($arrow-up-icon);
+						}
+					}
+
+					&[aria-expanded="false"]{
+						&::after {
+							background-image: escape-svg($arrow-down-icon);
+						}
+					}
+				}
+			}
+
+			.children {
+				margin-left: 1rem;
+			}
+		}
+	}
+}
